@@ -11,7 +11,7 @@ Google Fonts (Spectral + Figtree).
 |---|---|
 | `index.html` | Support page: features, the 11 journeys, food guide and scanner, group fasts, Free vs Plus, FAQ, contact |
 | `privacy.html` | Privacy Policy for both apps (effective October 27, 2026) |
-| `terms.html` | Terms of Use / EULA for both apps (effective October 24, 2026) |
+| `terms.html` | Terms of Use / EULA for both apps (effective October 30, 2026) |
 | `privacy-android.html`, `terms-android.html` | Redirects to `privacy.html` / `terms.html` that keep the language fragment (older Android builds and the first Play listing linked here) |
 | `join/index.html` | Group-fast invitation landing page (`/join/?j=<journey>&s=<yyyy-MM-dd>&n=<group name>`) |
 | `404.html` | Not-found page (GitHub Pages serves it for any missing path) |
@@ -20,12 +20,12 @@ Google Fonts (Spectral + Figtree).
 ## Languages
 
 Every page is in English, Português (Brasil), Español (neutral Latin American),
-Français and Italiano, with the same mechanism as the Nistikon support site: each page
-carries `[data-lang]` blocks for all five languages, shared chrome uses
+Français, Italiano and Deutsch, with the same mechanism as the Nistikon support site: each page
+carries `[data-lang]` blocks for all six languages, shared chrome uses
 `data-i18n-*` / `data-i18n-aria-*` attributes, and `site.js` shows one language,
-chosen by the `#portugues` / `#espanol` / `#francais` / `#italiano` URL fragment, then the
-EN · PT · ES · FR · IT tabs (remembered in `localStorage`), then the browser
-language. Without JavaScript the five languages render stacked, so legal text
+chosen by the `#portugues` / `#espanol` / `#francais` / `#italiano` / `#deutsch` URL fragment, then the
+EN · PT · ES · FR · IT · DE tabs (remembered in `localStorage`), then the browser
+language (any `de*` locale opens German). Without JavaScript the six languages render stacked, so legal text
 is never hidden. Both apps' legal links append the fragment for the in-app language
 (iOS `Legal.privacy/terms` in `PaywallView.swift`, Android `Links` in
 `LightfastRoot.kt`).
@@ -35,19 +35,24 @@ is never hidden. Both apps' legal links append the fragment for the in-app langu
 The pages serve both apps equally. Text is written for a phone owner first
 ("your phone", "the app"); where the platforms really differ, the difference is
 stated as a pair — **On iPhone:** … / **On Android:** … (pt *No iPhone / No
-Android*, es *En iPhone / En Android*, fr *Sur iPhone / Sur Android*, it *Su iPhone / Su Android*) — with the
+Android*, es *En iPhone / En Android*, fr *Sur iPhone / Sur Android*, it *Su iPhone / Su Android*,
+de *Auf dem iPhone / Auf Android*) — with the
 same depth on each side and iPhone always first: backups and new phones,
 Live Activity vs the ongoing fast notification, widgets, the camera and text
 recognition (Vision vs Tesseract), purchases, managing, restoring, Family
 Sharing, refunds and the store terms (Apple's standard EULA vs Google Play).
 Each platform keeps its own vocabulary (Apple Account, Settings › [your name] ›
-Subscriptions; Google Account, Play Store › Payments & subscriptions). Headings
-in pt/es/fr/it use sentence case, and every page's browser-tab title follows the
+Subscriptions; Google Account, Play Store › Payments & subscriptions; in German
+Apple Account, Einstellungen › [dein Name] › Abonnements, Familienfreigabe, „Mitteilungen“;
+Google-Konto, Play Store › Zahlungen und Abos › Abos, „Benachrichtigungen“). Headings
+in pt/es/fr/it use sentence case (German capitalises nouns as usual), and every page's browser-tab title follows the
 chosen language (`data-i18n-*` on `<title>`; the join page retitles itself).
 
-French and Italian address the reader as *tu*, matching the app's content guide.
-The pt/es/fr/it names of in-app buttons, tabs and screens (e.g. es *jornada*,
-*Ora como Daniel*, *Ayuno digital*; fr *Aliments*) follow the app's String
+French and Italian address the reader as *tu* and German as *du*, matching the app's content guide;
+German follows the binding glossary (`docs/superpowers/plans/2026-11-03-german-glossary.md`:
+„…“ quotes, the spaced en dash, *Weg/Wege* for journey) and quotes only the Lutherbibel 1912.
+The pt/es/fr/it/de names of in-app buttons, tabs and screens (e.g. es *jornada*,
+*Ora como Daniel*, *Ayuno digital*; fr *Aliments*; de *Wege*, *Essen*, *Beten wie Daniel*) follow the app's String
 Catalog (`content/ui/<lang>.json`); keep them in step when the catalog changes.
 
 ## Group-fast links
@@ -70,7 +75,7 @@ incomplete". If a journey is added to the app, add its id and titles to
 2. On GitHub: **Settings › Pages › Build and deployment › Source: Deploy from a
    branch**, branch `main`, folder `/ (root)`, Save.
 3. After a minute, check <https://branicio.github.io/lightfast-support/>,
-   `privacy.html#portugues`, `terms.html#francais`, `index.html#italiano`, a missing path (404 page)
+   `privacy.html#portugues`, `terms.html#francais`, `index.html#italiano`, `index.html#deutsch`, a missing path (404 page)
    and `join/?j=daniel-21&s=2027-01-04&n=Grace%20Church`.
 
 `404.html` uses absolute `/lightfast-support/…` paths because GitHub Pages
@@ -90,8 +95,8 @@ custom domain.
 ## Links
 
 - [Support](https://branicio.github.io/lightfast-support/)
-- [Privacy Policy](https://branicio.github.io/lightfast-support/privacy.html) · [pt](https://branicio.github.io/lightfast-support/privacy.html#portugues) · [es](https://branicio.github.io/lightfast-support/privacy.html#espanol) · [fr](https://branicio.github.io/lightfast-support/privacy.html#francais) · [it](https://branicio.github.io/lightfast-support/privacy.html#italiano)
-- [Terms of Use](https://branicio.github.io/lightfast-support/terms.html) · [pt](https://branicio.github.io/lightfast-support/terms.html#portugues) · [es](https://branicio.github.io/lightfast-support/terms.html#espanol) · [fr](https://branicio.github.io/lightfast-support/terms.html#francais) · [it](https://branicio.github.io/lightfast-support/terms.html#italiano)
+- [Privacy Policy](https://branicio.github.io/lightfast-support/privacy.html) · [pt](https://branicio.github.io/lightfast-support/privacy.html#portugues) · [es](https://branicio.github.io/lightfast-support/privacy.html#espanol) · [fr](https://branicio.github.io/lightfast-support/privacy.html#francais) · [it](https://branicio.github.io/lightfast-support/privacy.html#italiano) · [de](https://branicio.github.io/lightfast-support/privacy.html#deutsch)
+- [Terms of Use](https://branicio.github.io/lightfast-support/terms.html) · [pt](https://branicio.github.io/lightfast-support/terms.html#portugues) · [es](https://branicio.github.io/lightfast-support/terms.html#espanol) · [fr](https://branicio.github.io/lightfast-support/terms.html#francais) · [it](https://branicio.github.io/lightfast-support/terms.html#italiano) · [de](https://branicio.github.io/lightfast-support/terms.html#deutsch)
 
 ## Contact
 

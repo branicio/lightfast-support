@@ -141,7 +141,10 @@ strong { font-weight: 650; }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--ink-soft); text-decoration: none; }
 .nav-links a:hover { color: var(--accent); }
-@media (max-width: 760px) { .nav-links { display: none; } }
+/* The section links share the bar with six language tabs: they tighten on
+   narrow tablets and give way below 820px (French needs the most room). */
+@media (max-width: 920px) { .nav-links { gap: 14px; } .nav-links a { font-size: 0.84rem; } }
+@media (max-width: 820px) { .nav-links { display: none; } }
 .nav-right { display: flex; align-items: center; }
 
 /* ---------------------------------------------------------- night-sky hero */
@@ -557,15 +560,23 @@ section.block { padding-top: 64px; padding-bottom: 64px; }
   content: ""; position: absolute; left: 50%; bottom: 3px; transform: translateX(-50%);
   width: 14px; height: 2px; border-radius: 1px; background: var(--ember);
 }
-@media (max-width: 380px) {
-  .langtabs [role="tab"] { min-width: 34px; padding: 5px 7px 6px; letter-spacing: 0.04em; }
-  .brand { font-size: 1.25rem; }
+/* Six tabs (EN · PT · ES · FR · IT · DE) and the brand share one row on a
+   phone: from 440px down the tabs and the wordmark tighten, and below 370px
+   the header keeps only the brand's mark. Its text stays in the link (size 0),
+   so the link is still announced as "Lightfast". */
+@media (max-width: 440px) {
+  .nav .wrap { gap: 10px; }
+  .langtabs [role="tab"] { min-width: 31px; padding: 5px 5px 6px; letter-spacing: 0.02em; }
+  .brand { font-size: 1.2rem; gap: 8px; }
+}
+@media (max-width: 370px) {
+  .nav .brand { font-size: 0; gap: 0; }
 }
 
 /* ---------------------------------------------------------- language visibility */
 /* Language sections are hidden ONLY under the authorisation of data-js on
    <html>, which site.js sets first and withdraws if setup fails. Without it
-   all five languages render stacked: showing five languages is a cosmetic
+   all six languages render stacked: showing six languages is a cosmetic
    failure; showing none would hide a legal document. Never hide [data-lang]
    outside an html[data-js="on"] scope. */
 html[data-js="on"] [data-lang] { display: none; }
