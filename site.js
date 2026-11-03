@@ -25,7 +25,8 @@
     // anchors like #faq — is deliberately absent: a language fragment on those
     // is meaningless at best and breaks the target at worst.
     var PAGES = { "index.html": true, "privacy.html": true, "terms.html": true,
-                  "privacy-android.html": true, "terms-android.html": true };
+                  "privacy-android.html": true, "terms-android.html": true,
+                  "impressum.html": true };
 
     // A function rather than a map lookup, so that no inherited Object
     // property ("constructor", "toString", ...) can pass as a stored language.
@@ -135,6 +136,9 @@
     // has no section, the first [data-lang] in document order wins. This is
     // what makes "zero active sections" impossible.
     function resolveLang(lang) {
+      // A page with no language sections (impressum.html) keeps the requested language for its
+      // shared chrome, links and <html lang>, instead of falling back to English.
+      if (!sections.length) return Object.prototype.hasOwnProperty.call(FRAGMENT, lang) ? lang : "en";
       var i;
       for (i = 0; i < sections.length; i++) {
         if (sections[i].dataset.lang === lang) return lang;

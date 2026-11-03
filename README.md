@@ -4,8 +4,8 @@ Support, legal and group-fast pages for **Lightfast: Daniel Fast**
 (`com.branicio.lightfast` on both platforms), a Christian spiritual-fasting
 companion for iPhone and Android. Static HTML/CSS/JS, served by GitHub Pages at
 <https://branicio.github.io/lightfast-support/>. No build step, no JavaScript
-libraries, no cookies, analytics or trackers; the only external resource is
-Google Fonts (Spectral + Figtree).
+libraries, no cookies, analytics or trackers, and no external resources: the
+fonts (Spectral + Figtree) are self-hosted in `fonts/`.
 
 | File | What it is |
 |---|---|
@@ -13,9 +13,11 @@ Google Fonts (Spectral + Figtree).
 | `privacy.html` | Privacy Policy for both apps (effective October 27, 2026) |
 | `terms.html` | Terms of Use / EULA for both apps (effective October 30, 2026) |
 | `privacy-android.html`, `terms-android.html` | Redirects to `privacy.html` / `terms.html` that keep the language fragment (older Android builds and the first Play listing linked here) |
+| `impressum.html` | Impressum / legal notice (§ 5 DDG): one static page, German, English and French in full plus a line per other language; text from `Marketing/legal-eu/eu_legal_texts.py`, linked from every footer |
 | `join/index.html` | Group-fast invitation landing page (`/join/?j=<journey>&s=<yyyy-MM-dd>&n=<group name>`) |
 | `404.html` | Not-found page (GitHub Pages serves it for any missing path) |
 | `styles.css`, `site.js`, `app-icon.png` | Shared styles, language switcher, 512 px app icon |
+| `fonts/` | Self-hosted Spectral + Figtree (woff2, latin + latin-ext), `fonts.css` and the OFL `LICENSES.txt`, made by `Marketing/legal-eu/selfhost_fonts.py` so no visitor request goes to Google |
 
 ## Languages
 
@@ -75,7 +77,7 @@ incomplete". If a journey is added to the app, add its id and titles to
 2. On GitHub: **Settings › Pages › Build and deployment › Source: Deploy from a
    branch**, branch `main`, folder `/ (root)`, Save.
 3. After a minute, check <https://branicio.github.io/lightfast-support/>,
-   `privacy.html#portugues`, `terms.html#francais`, `index.html#italiano`, `index.html#deutsch`, a missing path (404 page)
+   `privacy.html#portugues`, `terms.html#francais`, `index.html#italiano`, `index.html#deutsch`, `impressum.html#deutsch`, a missing path (404 page)
    and `join/?j=daniel-21&s=2027-01-04&n=Grace%20Church`.
 
 `404.html` uses absolute `/lightfast-support/…` paths because GitHub Pages
