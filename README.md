@@ -7,6 +7,41 @@ companion for iPhone and Android. Static HTML/CSS/JS, served by GitHub Pages at
 libraries, no cookies, analytics or trackers, and no external resources: the
 fonts (Spectral + Figtree) are self-hosted in `fonts/`.
 
+**https://branicio.github.io/lightfast-support/**
+
+## Live URLs — and why the filenames are frozen
+
+Served by GitHub Pages from the `main` branch root (`source: main /`): anything pushed to root
+is live within a minute or two. All of these returned `200` on 2026-11-09 and must keep returning
+`200`:
+
+| URL | Resolves to | Linked from |
+|---|---|---|
+| https://branicio.github.io/lightfast-support/ | `index.html` | both apps (Settings › Help and support, Share), App Store and Google Play support URL |
+| https://branicio.github.io/lightfast-support/privacy | `privacy.html` | — |
+| https://branicio.github.io/lightfast-support/privacy.html | `privacy.html` | both apps (Settings, paywall, onboarding's Terms step), App Store Connect privacy URL, Google Play, every store description |
+| https://branicio.github.io/lightfast-support/terms | `terms.html` | — |
+| https://branicio.github.io/lightfast-support/terms.html | `terms.html` | both apps (Settings, paywall, onboarding's Terms step), every store description; the App Store custom EULA is built from it |
+| https://branicio.github.io/lightfast-support/impressum | `impressum.html` | — |
+| https://branicio.github.io/lightfast-support/impressum.html | `impressum.html` | every page's footer (Legal notice) |
+| https://branicio.github.io/lightfast-support/join/ | `join/index.html` | group-fast invitations from both apps (`/join/?j=<journey>&s=<yyyy-MM-dd>&n=<name>`) |
+| https://branicio.github.io/lightfast-support/privacy-android.html | redirect to `privacy.html` | older Android builds and the first Play listing |
+| https://branicio.github.io/lightfast-support/terms-android.html | redirect to `terms.html` | older Android builds and the first Play listing |
+
+The apps open each legal page with the reader's language as a fragment: `#portugues`, `#espanol`,
+`#francais`, `#italiano`, `#deutsch` (English has none), e.g.
+https://branicio.github.io/lightfast-support/terms.html#deutsch.
+
+GitHub Pages resolves the extensionless forms (`/privacy`, `/terms`, `/impressum`) to the matching
+`.html` file by itself; there is no redirect rule to configure, and it works only while the files
+keep these names. **Don't rename `index.html`, `privacy.html`, `terms.html`, `impressum.html` or
+`join/index.html`**: the URLs are compiled into shipped app builds (iOS `Legal` in
+`PaywallView.swift`, Android `Links`), registered in App Store Connect and Google Play, and printed
+in invitations people have already shared. A rename needs new app builds and store updates first.
+
+Paulo's name and postal address appear only in `impressum.html` (German law, § 5 DDG); every other
+page gives the email braniapps@gmail.com only (2026-11-09).
+
 | File | What it is |
 |---|---|
 | `index.html` | Support page: features, the 11 journeys, food guide and scanner, group fasts, Free vs Plus, FAQ, contact |
