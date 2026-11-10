@@ -17,7 +17,7 @@ is live within a minute or two. All of these returned `200` on 2026-11-09 and mu
 
 | URL | Resolves to | Linked from |
 |---|---|---|
-| https://branicio.github.io/lightfast-support/ | `index.html` | both apps (Settings › Help and support, Share), App Store and Google Play support URL |
+| https://branicio.github.io/lightfast-support/ | `index.html` | both apps (Settings › Help and support), App Store and Google Play support URL |
 | https://branicio.github.io/lightfast-support/privacy | `privacy.html` | — |
 | https://branicio.github.io/lightfast-support/privacy.html | `privacy.html` | both apps (Settings, paywall, onboarding's Terms step), App Store Connect privacy URL, Google Play, every store description |
 | https://branicio.github.io/lightfast-support/terms | `terms.html` | — |
@@ -45,8 +45,8 @@ page gives the email braniapps@gmail.com only (2026-11-09).
 | File | What it is |
 |---|---|
 | `index.html` | Support page: features, the 11 journeys, food guide and scanner, group fasts, Free vs Plus, FAQ, contact |
-| `privacy.html` | Privacy Policy for both apps (effective October 27, 2026) |
-| `terms.html` | Terms of Use / EULA for both apps (effective October 30, 2026) |
+| `privacy.html` | Privacy Policy for both apps (effective November 3, 2026) |
+| `terms.html` | Terms of Use / EULA for both apps (effective November 9, 2026; both apps ask people to accept this version) |
 | `privacy-android.html`, `terms-android.html` | Redirects to `privacy.html` / `terms.html` that keep the language fragment (older Android builds and the first Play listing linked here) |
 | `impressum.html` | Impressum / legal notice (§ 5 DDG): one static page, German, English and French in full plus a line per other language; text from `Marketing/legal-eu/eu_legal_texts.py`, linked from every footer |
 | `join/index.html` | Group-fast invitation landing page (`/join/?j=<journey>&s=<yyyy-MM-dd>&n=<group name>`) |
@@ -122,12 +122,13 @@ custom domain.
 ## TODO
 
 - [ ] **Set `STORE_URLS["store-ios"]`** at the top of the script in
-      `join/index.html` (e.g. `https://apps.apple.com/app/id0000000000`) once the
-      App Store Connect record exists. Until then the App Store button is hidden;
-      the text still says to get the app from the App Store or Google Play.
-      `store-android` is already set to
+      `join/index.html` to `https://apps.apple.com/app/id6828979440` on the day the
+      iOS app goes on sale, not before: the link errors until then (1.0.0 has been in
+      App Review since 2026-11-09 and is released automatically once approved). Until
+      then the App Store button is hidden; the text still says to get the app from the
+      App Store or Google Play. `store-android` is already set to
       `https://play.google.com/store/apps/details?id=com.branicio.lightfast`
-      (it works for opted-in closed-test testers now and for everyone at launch).
+      (1.0.0 went to Google Play's production track on 2026-11-09).
 
 ## Links
 
